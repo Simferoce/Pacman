@@ -33,6 +33,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+<<<<<<< HEAD
     <Reference Include="sfmlnet-audio-2">
       <HintPath>.\sfmlnet-audio-2.dll</HintPath>
     </Reference>
@@ -45,6 +46,8 @@
     <Reference Include="sfmlnet-window-2">
       <HintPath>.\sfmlnet-window-2.dll</HintPath>
     </Reference>
+=======
+>>>>>>> 24fa30ad2696bfc1281fd9578cddd6e4d1522c07
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
