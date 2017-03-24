@@ -418,15 +418,15 @@ namespace TP2Tests
     {
             // Mise en place des données
             Grid grid = new Grid();
-      // Appel de la méthode à tester
-      // Validation des résultats
-      
+            // Appel de la méthode à tester
+            // Validation des résultats
+            Assert.AreEqual(5, grid.GetGridElementAt(2,2));
+            Assert.AreEqual(5, grid.GetGridElementAt(2, 2));
+            Assert.AreEqual(5, grid.GetGridElementAt(2, 2));
+            Assert.AreEqual(5, grid.GetGridElementAt(2, 2));
 
-
-
-
-      // Clean-up
-    }
+            // Clean-up
+        }
 
     /// <summary>
     /// Teste si les éléments chargés sont corrects
