@@ -18,8 +18,19 @@ namespace TP2PROF
     /// <param name="fromY">La position du pacman en ligne</param>
     /// <returns>Le tableau initialisé correctement</returns>
     // A COMPLÉTER  Méthode InitCosts
-
-
+    static public int[,]   InitCosts(Grid aGrid,int fromX,int fromY)
+    {
+      int[,] costs = new int[aGrid.Length(1), aGrid.Length(0)];
+      for (int i = 0; i < costs.Length(0) - 1; i++)
+      {
+        for (int j = 0; j < costs.Length(1)-1 ; j++)
+        {
+          costs[i,j] = int.MaxValue;
+        }
+      }
+      costs[fromY, fromX] = 0;
+      return costs;
+    }
 
 
 
@@ -38,8 +49,15 @@ namespace TP2PROF
     /// est déjà rendu ou Direction.Undefined s'il est impossible d'atteindre la cible</returns>
     /// </summary>
     // A COMPLÉTER  Méthode FindShortestPath
+    static Direction FindShortestPath(Grid aGrid,int fromX,int fromY,int toX,int toY)
+    {
 
+      int[,] costs = InitCosts(aGrid, fromX, fromY);
 
+      ComputeCosts(aGrid, fromX, fromY, toX, toY, costs);
+
+      return RecurseFindDirection(costs, toX,toY );
+    }
 
 
 
@@ -58,7 +76,63 @@ namespace TP2PROF
     /// <remark>Cette méthode est récursive</remark>
     /// </summary>
     // A COMPLÉTER  Méthode ComputeCosts
+    static public void ComputeCosts(Grid agrid,int fromX,int fromY,int toX,int toY,int[,] costs)
+    {
+      if (costs[toY, toX] == costs[fromY, fromX])
+      {
 
+        if (costs.Length(0)-1>=fromY+1)
+        { 
+           if (agrid.GetElementAt(fromY+1,fromX)==PacmanElement.None)
+           {
+             if(costs[fromY+1,fromX]<costs[fromY,fromX])
+             {
+              costs[fromY + 1, fromX] = costs[fromY, fromX]+1;
+              ComputeCosts(agrid,fromX,fromY+1,toX,toY,costs);
+             }
+           }
+        }
+
+        if (0 <= fromY - 1)
+        {
+          if (agrid.GetElementAt(fromY-1, fromX) == PacmanElement.None)
+          {
+            if (costs[fromY - 1, fromX] < costs[fromY, fromX])
+            {
+              costs[fromY - 1, fromX] = costs[fromY, fromX] + 1;
+              ComputeCosts(agrid, fromX, fromY - 1, toX, toY, costs);
+            }
+          }
+        }
+
+        if (costs.Length(1) - 1 >= fromX + 1)
+        {
+          if (agrid.GetElementAt(fromY, fromX+1) == PacmanElement.None)
+          {
+            if (costs[fromY, fromX+1] < costs[fromY, fromX])
+            {
+              costs[fromY, fromX+1] = costs[fromY, fromX] + 1;
+              ComputeCosts(agrid, fromX+1, fromY, toX, toY, costs);
+            }
+          }
+        }
+
+        if (0 <= fromX - 1)
+        {
+          if (agrid.GetElementAt(fromY, fromX-1) == PacmanElement.None)
+          {
+            if (costs[fromY, fromX-1] < costs[fromY, fromX])
+            {
+              costs[fromY, fromX-1] = costs[fromY, fromX] + 1;
+              ComputeCosts(agrid, fromX-1, fromY, toX, toY, costs);
+            }
+          }
+        }
+
+      }
+
+
+    }
 
 
 
@@ -75,7 +149,10 @@ namespace TP2PROF
     /// <returns>La direction dans laquelle on doit aller. Direction.None si l'on
     /// est déjà rendu ou Direction.Undefined s'il est impossible d'atteindre la cible</returns>
     // A COMPLÉTER  Méthode RecurseFindDirection
-    
+    static Direction RecurseFindDirection(int[,] costs,int targetX,int targetY)
+    {
+      return 0;
+    }
   }
 
 }

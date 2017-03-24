@@ -47,12 +47,19 @@ namespace TP2Tests
     public void TestInitCost_01()
     {
       // Mise en place des données
-      
-
+      Grid aGrid = new Grid();
       // Appel de la méthode à tester
-      
+      PathFinder.InitCosts(aGrid, 0, 0);
       // Validations
-      
+      Assert.AreEqual(0, PathFinder.costs[0, 0]);
+      for (int i = 0; i < aGrid.Length(0)-1; i++)
+      {
+        for (int j = 0; j < aGrid.Length(1)-1; j++)
+        {
+          if ((i != 0) && (j != 0))
+            Assert.AreEqual(int.MaxValue,aGrid[i,j]);
+        }
+      }
     }
 
     /// <summary>
@@ -67,24 +74,24 @@ namespace TP2Tests
     public void TestComputeCost_01()
     {
       // Mise en place des données
-      
+      Grid aGrid = new Grid();
+      int[,] costs= PathFinder.InitCosts(aGrid, 0, 0);
 
       // Appel de la méthode à tester
-      
+      PathFinder.ComputeCosts(aGrid,0,0,0,0,costs);
 
       // Validations
       // Chemins existants
-      
-
+      Assert.AreEqual(PacmanElement.None, PathFinder.costs[,]);
 
 
 
 
       // Chemins inexistants
+       Assert.AreEqual(PacmanElement.Wall, PathFinder.costs[,]);
+
+
       
-      
-      
-      ;
     }
     
     /// <summary>

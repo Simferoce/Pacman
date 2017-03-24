@@ -8,6 +8,14 @@ namespace TP2PROF
 {
   // ppoulin
   // Complétez la déclaration du type énuméré Direction  
-
+  enum Direction
+  {
+    None,
+    Undefined,
+    Up,
+    Down,
+    Left,
+    Right
+  }
 
 }
