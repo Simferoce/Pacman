@@ -10,7 +10,9 @@ namespace TP2PROF
   // Complétez la déclaration du type énuméré PacmanElement
   public enum PacmanElement
     {
-        None
+        None,
+        wall,
+
     }
 
 
