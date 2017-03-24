@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-namespace TPPacman
+
+namespace TP2PROF
 {
-    class Program
-    {
-        static void Main(string[] args)
-        {
-        }
-    }
+  public enum EndGameResult
+  {
+    NotFinished,
+    Win,
+    Losse,
+  }
 }
