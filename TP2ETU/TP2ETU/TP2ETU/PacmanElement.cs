@@ -8,7 +8,10 @@ namespace TP2PROF
 {
   // ppoulin
   // Complétez la déclaration du type énuméré PacmanElement
-
+  public enum PacmanElement
+    {
+        None
+    }
 
 
 }

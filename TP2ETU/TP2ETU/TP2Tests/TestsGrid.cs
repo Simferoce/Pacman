@@ -377,14 +377,12 @@ namespace TP2Tests
     [TestMethod]
     public void TestLoadValidContent01()
     {
-      // Mise en place des données
-      
-      // Appel de la méthode à tester
-      
-
-      // Validation des résultats
-      
-
+            // Mise en place des données
+            Grid grid = new Grid();
+            // Appel de la méthode à tester
+            bool result = grid.LoadFromMemory(VALID_LEVEL_01);
+            // Validation des résultats
+            Assert.IsTrue(result);
       // Clean-up
     }
 
@@ -398,13 +396,13 @@ namespace TP2Tests
     [TestMethod]
     public void TestGetElementAt01()
     {
-      // Mise en place des données
-      
-      // Appel de la méthode à tester
-      
-      // Validation des résultats
-      
+            // Mise en place des données
+            Grid grid = new Grid();
+            grid.LoadFromMemory(VALID_LEVEL_01);
+            // Appel de la méthode à tester
 
+            // Validation des résultats
+            Assert.AreEqual(6,grid.GetGridElementAt(11,10));
       // Clean-up
     }
 
@@ -418,10 +416,9 @@ namespace TP2Tests
     [TestMethod]
     public void TestGetElementAt02()
     {
-      // Mise en place des données
-      
+            // Mise en place des données
+            Grid grid = new Grid();
       // Appel de la méthode à tester
-      
       // Validation des résultats
       
 
